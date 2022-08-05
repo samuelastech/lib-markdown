@@ -1,7 +1,6 @@
 import chalk from 'chalk'
 import fs from 'fs'
 
-fs.readFile('./src/files/text1.md', 'utf-8', (error, text) => {
-    if(error) throw new Error(chalk.red(error))
-    console.log(text)
-})
+fs.promises.readFile('./src/files/text1.md', 'utf-8')
+    .then(text => console.log(text))
+    .catch(error => { throw new Error(chalk.red(error)) })
