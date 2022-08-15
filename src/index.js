@@ -30,6 +30,7 @@ async function readFile(path) {
  * Extract the links from .md
  * @param {String} markDownText
  * @returns {Object} with all links
+ * @returns {String} if there's no link in the file
  */
 function linkExtractor(markDownText) {
     const regex = /\[([^\]]+)\]\((http(s)?:\/\/[^\)]+)\)/gim
@@ -40,7 +41,9 @@ function linkExtractor(markDownText) {
         links[link[1]] = link[2] 
         // Regex: group 1 -- group2
     }
-    return links
+    return Object.keys(links).length === 0 // Object is void
+        ? 'There is no links in this file'
+        : links
 }
 
 export default showLinks
