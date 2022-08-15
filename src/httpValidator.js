@@ -9,6 +9,11 @@ async function verifyURLs(links){
     return await verifyStatusCode(linksArr)
 }
 
+/**
+ * Return the status code from each URL
+ * @param {Array} links 
+ * @returns {Array} with the status code
+ */
 async function verifyStatusCode(links){
     return await Promise.all(links.map(async link => {
         const response = await fetch(link)
