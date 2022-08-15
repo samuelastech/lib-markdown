@@ -10,6 +10,11 @@ async function readFile(path) {
     }
 }
 
+/**
+ * Extract the links from .md
+ * @param {String} markDownText 
+ * @returns {Object} with all links
+ */
 function linkExtractor(markDownText) {
     const regex = /\[([^\]]+)\]\((http(s)?:\/\/[^\)]+)\)/gim
     const links = {}
