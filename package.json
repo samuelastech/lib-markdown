@@ -3,16 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "main": "cli.js",
+  "jest": {
+    "transform": {
+      "\\.js$": "<rootDir>/node_modules/babel-jest"
+     }
+},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
     "md": "node src/cli.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.0.1",
+    "chalk": "^4.1.2",
     "node-fetch": "^3.2.10"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "jest": "^28.1.3"
+  }
 }
