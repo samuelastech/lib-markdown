@@ -22,4 +22,4 @@ function linkExtractor(markDownText) {
     return links
 }
 
-readFile('./src/files/text2.md')
+export default readFile
