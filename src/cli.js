@@ -1,6 +1,12 @@
 import fileReader from './index.js'
+import httpValidator from './httpValidator'
 
 (async () => {
     const path = process.argv[2]
-    console.log(await fileReader(path))
+    const links = await fileReader(path)
+
+    if(process.argv[3] === 'validate')
+        console.log("Validated links:\n\n", httpValidator(links))
+    else
+        console.log("Links list:\n\n", links)
 })()
