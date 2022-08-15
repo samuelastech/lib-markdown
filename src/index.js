@@ -1,10 +1,26 @@
 import chalk from 'chalk'
 import fs from 'fs'
 
+/**
+ * Show the links from a .md
+ * @param {String} file
+ * @returns {Object} with the links
+ */
+async function showLinks(file){
+    const text = await readFile(file)
+    const links = linkExtractor(text)
+    return links
+}
+
+/**
+ * Catch a file and extract its text
+ * @param {String} path to the file
+ * @returns {String} the pure text from the file
+ */
 async function readFile(path) {
     try {
         const text = await fs.promises.readFile(path, 'utf-8')
-        console.log(linkExtractor(text))
+        return text
     } catch (error) {
         throw new Error(chalk.red(error.code, 'this file doesn\'t exist in this path'))
     }
@@ -12,7 +28,7 @@ async function readFile(path) {
 
 /**
  * Extract the links from .md
- * @param {String} markDownText 
+ * @param {String} markDownText
  * @returns {Object} with all links
  */
 function linkExtractor(markDownText) {
@@ -27,4 +43,4 @@ function linkExtractor(markDownText) {
     return links
 }
 
-export default readFile
+export default showLinks
