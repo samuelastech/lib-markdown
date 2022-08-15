@@ -1,18 +1,28 @@
+import fetch from 'node-fetch'
+
 /**
  * See if the links are working
  * @param {Object} links object with links 
  */
-function verifyURLs(links){
-    
+async function verifyURLs(links){
+    const linksArr = objToArray(links)
+    return await verifyStatusCode(linksArr)
+}
+
+async function verifyStatusCode(links){
+    return await Promise.all(links.map(async link => {
+        const response = await fetch(link)
+        return response.status
+    }))
 }
 
 /**
- * Take the links into an array
+ * Take the links from an object into an array
  * @param {Object} object with links
  * @returns {Array} with only the links
  */
 function objToArray(object){
-    return Object.values(links)
+    return Object.values(object)
 }
 
 export default verifyURLs

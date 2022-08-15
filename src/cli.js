@@ -6,7 +6,7 @@ import httpValidator from './httpValidator.js'
     const links = await fileReader(path)
 
     if(process.argv[3] === 'validate')
-        console.log("Validated links:\n\n", httpValidator(links))
+        console.log("Validated links:\n\n", await httpValidator(links))
     else
         console.log("Links list:\n\n", links)
 })()
