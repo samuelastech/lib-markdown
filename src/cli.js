@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import fileReader from './index.js'
 import httpValidator from './httpValidator.js'
 
