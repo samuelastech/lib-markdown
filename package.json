@@ -1,19 +1,21 @@
 {
-  "name": "lib-markdown",
+  "name": "md-extractor",
   "version": "1.0.0",
-  "description": "",
+  "description": "A lib that extract markdown elements from a markdown file (somefile.md)",
   "main": "cli.js",
   "jest": {
     "transform": {
       "\\.js$": "<rootDir>/node_modules/babel-jest"
-     }
-},
+    }
+  },
   "scripts": {
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
     "md": "node src/cli.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "markdown, URL, cli"
+  ],
+  "author": "Samuel Araujo de Souza <samuel.araujo.souza@outlook.com>",
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.2",
@@ -21,6 +23,15 @@
   },
   "type": "module",
   "devDependencies": {
-    "jest": "^28.1.3"
-  }
+    "jest": "^28.1.3",
+    "eslint": "^8.23.0"
+  },
+  "bugs": {
+    "url": "https://github.com/samuelastech/lib-markdown/issues",
+    "email": "samuel.araujo.souza@outlook.com"
+  },
+  "bin": {
+    "mdextract": "./src/cli.js"
+  },
+  "preferGlobal": true
 }
