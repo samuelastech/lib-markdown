@@ -5,8 +5,22 @@ import fetch from 'node-fetch'
  * @param {Object} links object with links 
  */
 async function verifyURLs(links){
-    const linksArr = objToArray(links)
-    return await verifyStatusCode(linksArr)
+    const linksArr = objToArray(links) // Clean up
+    const status = await verifyStatusCode(linksArr)
+
+    let newLinks = {}
+    let i = 0
+
+    for(const key in links){
+        newLinks[key] = { 
+            link: linksArr[i], 
+            status: status[i]
+        }
+
+        i++
+    }
+
+    return newLinks
 }
 
 /**
