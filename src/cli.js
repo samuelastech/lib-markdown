@@ -1,5 +1,5 @@
 import fileReader from './index.js'
-import httpValidator from './httpValidator'
+import httpValidator from './httpValidator.js'
 
 (async () => {
     const path = process.argv[2]
